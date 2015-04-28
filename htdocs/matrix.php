@@ -69,65 +69,66 @@
 	}
 
 	function inverse($a) {
-		$b = identity(count($m));
-		$n = count(m), $m = count($b[0]);
+		// $b = identity(count($m));
+		// $n = count(m)
+		// $m = count($b[0]);
 
-		$EPS = .00000001;
+		// $EPS = .00000001;
 
-		$irow = [], $icol = [], $ipiv = [];
-		for($i = 0; $i < $n; $i++) {
-			array_push($irow, 0);
-			array_push($icol, 0);
-			array_push($ipiv, 0);
-		}
+		// $irow = [], $icol = [], $ipiv = [];
+		// for($i = 0; $i < $n; $i++) {
+		// 	array_push($irow, 0);
+		// 	array_push($icol, 0);
+		// 	array_push($ipiv, 0);
+		// }
 
-		$det = 1;
+		// $det = 1;
 
-		for($i = 0; $i < $n; $i++) {
-			$pj = -1, $pk = -1;
+		// for($i = 0; $i < $n; $i++) {
+		// 	$pj = -1, $pk = -1;
 
-			for($j = 0; $j < $n; $j++) if ($ipiv[$j] == 0)
-				for($k = 0; $k < $n; $k++) if ($ipiv[$k] == 0)
-					if ($pj == -1 || abs($a[$j][$k]) > abs(a[$pj][$pk])) { $pj = $j; $pk = $k; }
+		// 	for($j = 0; $j < $n; $j++) if ($ipiv[$j] == 0)
+		// 		for($k = 0; $k < $n; $k++) if ($ipiv[$k] == 0)
+		// 			if ($pj == -1 || abs($a[$j][$k]) > abs(a[$pj][$pk])) { $pj = $j; $pk = $k; }
 
-			if (abs($a[$pj][$pk]) < $EPS) return -1;
+		// 	if (abs($a[$pj][$pk]) < $EPS) return -1;
 
-			$ipiv[$pk]++;
-			swap($a[$pj], $a[$pk]);
-			swap($b[$pj], $b[$pk]);
+		// 	$ipiv[$pk]++;
+		// 	swap($a[$pj], $a[$pk]);
+		// 	swap($b[$pj], $b[$pk]);
 
-			if ($pj != $pk) det *= -1;
+		// 	if ($pj != $pk) det *= -1;
 
-			$irow[$i] = $pj;
-			$icol[$i] = $pk;
+		// 	$irow[$i] = $pj;
+		// 	$icol[$i] = $pk;
 
-			$c = 1 / $a[$pk][$pk];
-			$det *= $a[$pk][$pk];
-			$a[$pk][$pk] = 1.0;
+		// 	$c = 1 / $a[$pk][$pk];
+		// 	$det *= $a[$pk][$pk];
+		// 	$a[$pk][$pk] = 1.0;
 
-			for($p = 0; $p < $n; $p++)
-				$a[$pk][$p] *= $c;
+		// 	for($p = 0; $p < $n; $p++)
+		// 		$a[$pk][$p] *= $c;
 
-			for($p = 0; $p < $m; $p++)
-				$b[$pk][$p] *= $c;
+		// 	for($p = 0; $p < $m; $p++)
+		// 		$b[$pk][$p] *= $c;
 
-			for($p = 0; $p < $n; $p++) if ($p != $pk) {
-				$c = $a[$p][$pk];
-				$a[$p][$pk] = 0;
+		// 	for($p = 0; $p < $n; $p++) if ($p != $pk) {
+		// 		$c = $a[$p][$pk];
+		// 		$a[$p][$pk] = 0;
 
-				for($q = 0; $q < $n; $q++)
-					$a[$p][$q] -= $a[$pk][$q] * $c;
+		// 		for($q = 0; $q < $n; $q++)
+		// 			$a[$p][$q] -= $a[$pk][$q] * $c;
 
-				for($q = 0; $q < $m; $q++)
-					$b[$p][$q] -= $b[$pk][$q] * $c;
-			}
-		}
+		// 		for($q = 0; $q < $m; $q++)
+		// 			$b[$p][$q] -= $b[$pk][$q] * $c;
+		// 	}
+		// }
 
-		for($p = $n-1; $p >= 0; $p--) if ($irow[$p] != $icol[$p]) {
-			for($k = 0; $k < $n; $k++) swap($a[$k][$irow[$p]], $a[$k][$icol[$p]]);
-		}
+		// for($p = $n-1; $p >= 0; $p--) if ($irow[$p] != $icol[$p]) {
+		// 	for($k = 0; $k < $n; $k++) swap($a[$k][$irow[$p]], $a[$k][$icol[$p]]);
+		// }
 
-		return A;
+		// return A;
 	}
 
 	function identity($size) {
@@ -180,9 +181,9 @@
 	}
 
 	$matrix1 = parseMatrix($_REQUEST["matrix1"]);
-	echo "input: ";
-	echo toString($matrix1);
-	echo "<pre>\n</pre>";
+	// echo "input: ";
+	// echo toString($matrix1);
+	// echo "<pre>\n</pre>";
 	switch($_REQUEST["op"]) {
 		case "add":
 			$matrix2 = parseMatrix($_REQUEST["matrix2"]);
