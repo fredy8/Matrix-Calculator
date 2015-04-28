@@ -7,17 +7,31 @@
 <body>
 <script>
     function createMatrix(){
-        alert("crear");
+        matrixname = document.getElementById("matrixname").value;
+        div=document.getElementById("variables");
+        table = "<h3>"+matrixname+"<table>\n";
+        for (i=0; i<document.getElementById("rows").value; i++){
+            table += "\t<tr>";
+            for (j=0; j<document.getElementById("columns").value; j++){
+                table += "<td><input type='number' id='matrixname-"+i+"-"+j+"'></td>";
+            }
+            table += "</tr>\n";
+        }
+        table += "</table>";
+        div.innerHTML += table;
     }
 </script>
 <h1>Operaciones de matrices</h1>
-<div name="variables">
-    <input name="rows" type="number" size="20">
-    <input name="columns" type="number">
-    <button name="crear" onclick="createMatrix()">Crear matriz</button>
+<div id="creatediv">
+    <input id="rows" type="number" placeholder="rows" size="20" min="1"/>
+    <input id="columns" type="number" placeholder="columns">
+    <input id="matrixname" type="text" placeholder="variable">
+    <button id="crear" onclick="createMatrix()">Crear matriz</button>
 </div>
 
-<div name="operaciones">
+<div id="variables"></div>
+
+<div id="operaciones">
 
     <form action="matrix.php" method="post">
         <select name="operacion">
