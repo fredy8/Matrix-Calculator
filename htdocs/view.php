@@ -8,8 +8,8 @@
 <script>
     function createMatrix(){
         matrixname = document.getElementById("matrixname").value;
-        div=document.getElementById("variables");
-        table = "<h3>"+matrixname+"<table>\n";
+        div=document.getElementById("creando");
+        table = "<h3>"+matrixname+"</h3><table name='"+matrixname+"'><button id='guardar' onclick='saveMatrix()'>Guardar Matriz</button>\n";
         for (i=0; i<document.getElementById("rows").value; i++){
             table += "\t<tr>";
             for (j=0; j<document.getElementById("columns").value; j++){
@@ -20,6 +20,14 @@
         table += "</table>";
         div.innerHTML += table;
     }
+
+    function saveMatrix(){
+        rows = document.getElementById("creando").getElementsByTagName("table")[0].getElementsByTagName("tr");
+        for (i=0; i<rows.length; i++){
+            cells = rows[i].getElementsByTagName("td");
+            alert(cells.innerHTML);
+        }
+    }
 </script>
 <h1>Operaciones de matrices</h1>
 <div id="creatediv">
@@ -28,7 +36,7 @@
     <input id="matrixname" type="text" placeholder="variable">
     <button id="crear" onclick="createMatrix()">Crear matriz</button>
 </div>
-
+<div id="creando"></div>
 <div id="variables"></div>
 
 <div id="operaciones">
