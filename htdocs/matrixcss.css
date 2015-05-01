@@ -1,0 +1,48 @@
+#whole{
+    text-align: center;
+}
+
+#titulo{
+    font: 33px sans-serif;
+    margin-top: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#crear{
+    position: relative;
+    padding: 10px 20px;
+    margin: 0px 8px 8px 0px;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #FFF;
+    text-decoration: none;
+    background-color: #E74C3C;
+    text-shadow: 0px -2px #BD3E31;
+}
+
+
+#button{
+    position: relative;
+    padding: 10px 30px;
+    margin: 0px 10px 10px 0px;
+    border-radius: 10px;
+    font-family: sans-serif;
+    font-size: 25px;
+    color: #FFF;
+    text-decoration: none;
+    background-color: #E74C3C;
+    text-shadow: 0px -2px #BD3E31;
+}
+
+#table_menu{
+    margin: 0px auto;
+    text-align: center;
+
+}
+
+
+#break{
+    padding: 10px;
+}
