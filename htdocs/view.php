@@ -3,6 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Operaciones de matrices</title>
+    <script src="jquery-1.11.2.min.js"></script>
     <script>
 
         function createMatrix(){
@@ -47,7 +48,7 @@
         }
 
         function saveMatrix(){
-            var rows = document.getElementById("creando").getElementsByTagName("table")[0].getElementsByTagName("tr");
+            var rows = document.getElementById("creando").getElementsByClassName("table")[0].getElementsByTagName("tr");
             var i;
             var cells;
             for (i=0; i<rows.length; i++){
@@ -75,6 +76,32 @@
             }
         }
 
+        $('#button').click(function(){
+            $.ajax({
+                url: 'matrix.php?op='+ $('#op').value() + '&matrix1=' ,
+                type: 'GET',
+                dataType: 'xml',
+                success: function(returnedXMLResponse){
+
+                }
+            });
+        });
+
+        $('#op').change(function () {
+            var op = document.getElementById("seleccion").value();
+            var insertion;
+            var ins;
+            if(op == "Scale"){
+                 ins = document.getElementById("insert");
+                 insertion = "<h3>Scalar</h3><input type='number' id='scalar'/>"
+                ins.innerHTML+= insertion;
+            }else if(op =="Power"){
+                ins = document.getElementById("insert");
+                insertion = "<h3>Exponent</h3><input type='number' id='exp'/>"
+                ins.innerHTML+= insertion;
+            }
+        });
+
     </script>
      <link href="matrixcss.css" rel="stylesheet" type="text/css">
 </head>
@@ -92,7 +119,7 @@
 
     <div id="operaciones">
         <form action="matrix.php" method="post">
-            <select  name="operacion">
+            <select id="seleccion" name="op">
                 <option value="Add">+</option>
                 <option value="Subtract">-</option>
                 <option value="Scale">K</option>
@@ -101,8 +128,11 @@
                 <option value="Inverse">-1</option>
             </select>
             <br>
+            <div id="insert">
+
+            </div>
             <div id="break">
-            <input id="button"type="submit" value="Enter">
+            <input id="button" type="submit" value="Enter">
             </div>
         </form>
     </div>
