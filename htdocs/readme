@@ -1,0 +1,7 @@
+Se agregaron dos menus junto a la operacion para escoger de las matrices creadas cuales van a hacer la operacion.
+
+La funcion changeMatrix1 se llama cuando se cambia el valor del primer menu. La idea es ahi extraer los datos de
+toda la tabla y ponerlos en formato: 1,2;3,4 y guardarlos ya codificados en el <p> con nombre matrix1.
+
+Habria que hacer esto tambien para matrix2, y dependiendo de la operacion seleccionada, habilitar la opcion de
+introducir un numero (escalar y power) para considerarlo como otro parámetro.

@@ -128,8 +128,9 @@
         <div id="variables"></div>
     <br><br>
     <div id="operaciones">
-        <p name="matrix1"></p>
         <form action="matrix.php" method="post">
+            <p hidden name="matrix1"></p>
+            <p hidden name="matrix2"></p>
             <select id="operandoA" onchange="changeMatrix1()">
                 <option value="noselectionA">[No selection]</option>
             </select>
