@@ -15,7 +15,8 @@
             revisar = validaCreacion();
                 if (revisar === true) {
                     var div = document.getElementById("creando");
-                    var table = "<h3>" + matrixname + "</h3><table id=\"table_menu\" name='" + matrixname + "'><button id='guardar' onclick='saveMatrix()'>Guardar Matriz</button>\n";
+                    var table = "<h3>" + matrixname + "</h3><table id=\"table_menu\" name='" + matrixname + "'>";
+                                //+<button id='guardar' onclick='saveMatrix()'>Guardar Matriz</button>\n";
                     var i;
                     for (i = 0; i < document.getElementById("rows").value; i++) {
                         table += "\t<tr>";
@@ -27,6 +28,8 @@
                     }
                     table += "</table>";
                     div.innerHTML += table;
+                    document.getElementById("operandoA").innerHTML += "<option value='"+matrixname+"'>"+matrixname+"</option>";
+                    document.getElementById("operandoB").innerHTML += "<option value='"+matrixname+"'>"+matrixname+"</option>";
                 } else {
                     return false;
                 }
@@ -102,6 +105,13 @@
             }
         });
 
+        function changeMatrix1(){
+            var matName = document.getElementById("operandoA").value;
+//            var table = document.getElementsByName(matName)[0].innerHTML;
+//            alert(table);
+            alert(document.getElementById("a-0-0").value());
+        }
+
     </script>
      <link href="matrixcss.css" rel="stylesheet" type="text/css">
 </head>
@@ -116,9 +126,13 @@
     </div>
         <div id="creando"></div>
         <div id="variables"></div>
-
+    <br><br>
     <div id="operaciones">
+        <p name="matrix1"></p>
         <form action="matrix.php" method="post">
+            <select id="operandoA" onchange="changeMatrix1()">
+                <option value="noselectionA">[No selection]</option>
+            </select>
             <select id="seleccion" name="op">
                 <option value="Add">+</option>
                 <option value="Subtract">-</option>
@@ -126,6 +140,9 @@
                 <option value="Multiply">*</option>
                 <option value="Power">^x</option>
                 <option value="Inverse">-1</option>
+            </select>
+            <select id="operandoB">
+                <option value="noselectionB">[No selection]</option>
             </select>
             <br>
             <div id="insert">
